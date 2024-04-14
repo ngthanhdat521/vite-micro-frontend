@@ -10,8 +10,7 @@
     "micro-frontends/*"
   ],
   "scripts": {
-    "start": "concurrently \"wsrun --parallel dev\"",
-    "release": "concurrently \"wsrun --parallel release\"",
+    "start": "concurrently \"wsrun --parallel dev:client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

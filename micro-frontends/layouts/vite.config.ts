@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [
 		react(),
 		federation({
-			name: 'pokemonList',
+			name: 'layouts',
 			filename: 'remoteEntry.js',
 			exposes: {
 				'./shared/master-page': './src/shared/components/containers/master-page'
@@ -25,7 +25,14 @@ export default defineConfig({
 			{
 				find: '@shared',
 				replacement: resolve(__dirname, './src/shared/')
-			},
+			}
 		]
+	},
+	build: {
+		// modulePreload: false,
+		target: 'esnext',
+		minify: false,
+		cssCodeSplit: false
+		// assetsDir: ''
 	}
 });

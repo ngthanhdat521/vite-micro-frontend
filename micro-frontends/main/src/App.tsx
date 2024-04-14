@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
-// import MasterPage from 'layouts/shared/master-page';
+import { ProductPage } from '@pages/products';
+
 
 function App() {
-	return (
-		<div className="w-full">
-      123
-			{/* <MasterPage /> */}
-		</div>
-	);
+	return <ProductPage />;
 }
 
 export default App;

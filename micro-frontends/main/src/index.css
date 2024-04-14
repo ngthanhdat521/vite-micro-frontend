@@ -16,3 +16,12 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+.svg_color {
+	fill: red;
+}

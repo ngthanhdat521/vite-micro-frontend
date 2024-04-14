@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import App from './App';
+import { StaticRouter } from 'react-router-dom/server';
+import { AppRouters } from '@routers';
+import './index.css';
 
 export function render() {
 	const html = ReactDOMServer.renderToString(
 		<React.StrictMode>
-			<App />
+			<StaticRouter location=''>
+				<AppRouters />
+			</StaticRouter>
 		</React.StrictMode>
 	);
 	return { html };
