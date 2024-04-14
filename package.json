@@ -1,0 +1,21 @@
+{
+  "name": "micro-frontend-boilerplate",
+  "version": "1.0.0",
+  "description": "run app with micro-frontend architecutre",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "micro-frontends/*"
+  ],
+  "scripts": {
+    "start": "concurrently \"wsrun --parallel dev\"",
+    "release": "concurrently \"wsrun --parallel release\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "wsrun": "^5.2.4"
+  }
+}
