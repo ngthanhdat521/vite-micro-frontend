@@ -29,6 +29,14 @@ export default defineConfig({
 				find: '@routers',
 				replacement: resolve(__dirname, './src/routers/')
 			},
+			{
+				find: '@components',
+				replacement: resolve(__dirname, './src/components/')
+			},
+			{
+				find: '@services',
+				replacement: resolve(__dirname, './src/services/')
+			},
 		]
 	},
 	build: {

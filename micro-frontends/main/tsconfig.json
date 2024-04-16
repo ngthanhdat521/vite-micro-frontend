@@ -20,8 +20,11 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
+			"@/*": ["./src/*"],
 			"@pages/*": ["./src/pages/*"],
 			"@routers": ["./src/routers/index.tsx"],
+			"@components/*": ["./src/components/*"],
+			"@services/*": ["./src/services/*"],
 		}
 	},
 	"include": ["src", "vite.config.ts"],

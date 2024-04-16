@@ -1,10 +1,22 @@
-import React from 'react';
-import './App.css';
-import { ProductPage } from '@pages/products';
-
+import React, { useState } from 'react';
+import MasterPage from 'layouts/shared/master-page';
+import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
-	return <ProductPage />;
+	const { pathname } = useLocation();
+	const [open, setOpen] = useState(false);
+
+	const handleOpenDropdown = () => setOpen(!open);
+
+	return (
+		<MasterPage
+			pathname={pathname.substring(1, pathname.length)}
+			open={open}
+			handleOpenDropdown={handleOpenDropdown}
+		>
+			<Outlet />
+		</MasterPage>
+	);
 }
 
 export default App;

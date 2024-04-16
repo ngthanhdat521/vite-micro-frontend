@@ -13,7 +13,7 @@ export default defineConfig({
 			exposes: {
 				'./shared/master-page': './src/shared/components/containers/master-page'
 			},
-			shared: ['react']
+			shared: ['react', 'react-dom']
 		})
 	],
 	resolve: {

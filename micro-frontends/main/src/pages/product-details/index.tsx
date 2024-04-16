@@ -1,6 +1,9 @@
 import React, { FC } from "react";
+import { useParams } from 'react-router-dom';
 
 export const ProductDetailPage: FC = () => {
+  const params = useParams();
+
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -53,14 +56,14 @@ export const ProductDetailPage: FC = () => {
         </nav>
         {/* Image gallery */}
         <div className="w-full mt-6 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+          <div className="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg lg:block">
             <img
               src="https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg"
               alt="Two each of gray, white, and black shirts laying flat."
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div className="lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
                 src="https://tailwindui.com/img/ecommerce-images/product-page-03-product-02.jpg"
