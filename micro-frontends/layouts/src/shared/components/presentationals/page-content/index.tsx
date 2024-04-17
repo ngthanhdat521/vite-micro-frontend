@@ -6,5 +6,6 @@ interface IProps {
 
 export const PageContent: FC<IProps> = (props) => {
 	const { children } = props;
+
 	return <div className="bg-white">{children}</div>;
 };
