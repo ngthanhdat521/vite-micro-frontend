@@ -30,6 +30,8 @@ export class HttpClient {
 	}
 
 	post<TBody>(url: string, body: TBody) {
+		console.log('{ email, password }3', body);
+
 		return instance.post(`${this.path}/${url}`, body);
 	}
 }

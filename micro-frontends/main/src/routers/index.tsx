@@ -6,6 +6,7 @@ import { MyCartPage } from '@pages/my-cart';
 import { ProductDetailPage } from '@pages/product-details';
 import { ProductPage } from '@pages/products';
 import { SignInPage } from '@pages/sign-in';
+import { SignUpPage } from '@pages/sign-up';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 export const AppRouters = () => {
@@ -21,6 +22,7 @@ export const AppRouters = () => {
 				</Route>
 				<Route path="" element={<Navigate to="sign-in" />} />
 				<Route path="sign-in" element={<SignInPage />} />
+				<Route path="sign-up" element={<SignUpPage />} />
 				<Route path="404" element={<NotFoundPage />} />
 				<Route path="*" element={<Navigate to="404" />} />
 			</Routes>

@@ -27,8 +27,14 @@ dependencies:
     specifier: ^4.19.2
     version: 4.19.2
   leaflet:
-    specifier: ^1.9.4
-    version: 1.9.4
+    specifier: ^1.8.0
+    version: 1.8.0
+  leaflet-routing-machine:
+    specifier: ^3.2.12
+    version: 3.2.12
+  lrm-google:
+    specifier: ^1.0.1
+    version: 1.0.1
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -43,7 +49,7 @@ dependencies:
     version: 7.51.3(react@18.2.0)
   react-leaflet:
     specifier: ^4.2.1
-    version: 4.2.1(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0)
+    version: 4.2.1(leaflet@1.8.0)(react-dom@18.2.0)(react@18.2.0)
   react-router-dom:
     specifier: ^6.22.3
     version: 6.22.3(react-dom@18.2.0)(react@18.2.0)
@@ -615,6 +621,15 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: false
 
+  /@mapbox/corslite@0.0.7:
+    resolution: {integrity: sha512-w/uS474VFjmqQ7fFWIMZINQM1BAQxDLuoJaZZIPES1BmeYpCtlh9MtbFxKGGDAsfvut8/HircIsVvEYRjQ+iMg==}
+    dev: false
+
+  /@mapbox/polyline@0.2.0:
+    resolution: {integrity: sha512-GCddO0iw6AzOQqZgBmjEQI9Pgo40/yRgkTkikGctE01kNBN0ThWYuAnTD+hRWrAWMV6QJ0rNm4m8DAsaAXE7Pg==}
+    hasBin: true
+    dev: false
+
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -652,14 +667,14 @@ packages:
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
     dev: false
 
-  /@react-leaflet/core@2.1.0(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0):
+  /@react-leaflet/core@2.1.0(leaflet@1.8.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Qk7Pfu8BSarKGqILj4x7bCSZ1pjuAPZ+qmRwH5S7mDS91VSbVVsJSrW4qA+GPrro8t69gFYVMWb1Zc4yFmPiVg==}
     peerDependencies:
       leaflet: ^1.9.0
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      leaflet: 1.9.4
+      leaflet: 1.8.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -2128,8 +2143,16 @@ packages:
       json-buffer: 3.0.1
     dev: true
 
-  /leaflet@1.9.4:
-    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
+  /leaflet-routing-machine@3.2.12:
+    resolution: {integrity: sha512-HLde58G1YtD9xSIzZavJ6BPABZaV1hHeGst8ouhzuxmSC3s32NVtADT+njbIUMW1maHRCrsgTk/E4hz5QH7FrA==}
+    dependencies:
+      '@mapbox/corslite': 0.0.7
+      '@mapbox/polyline': 0.2.0
+      osrm-text-instructions: 0.13.4
+    dev: false
+
+  /leaflet@1.8.0:
+    resolution: {integrity: sha512-gwhMjFCQiYs3x/Sf+d49f10ERXaEFCPr+nVTryhAW8DWbMGqJqt9G4XuIaHmFW08zYvhgdzqXGr8AlW8v8dQkA==}
     dev: false
 
   /levn@0.4.1:
@@ -2170,6 +2193,12 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /lrm-google@1.0.1:
+    resolution: {integrity: sha512-+EJVIPn4mgkuWeQv3CNES7CFxoeO5BUup28sbTnN//FI1jFhxRhl8aPdDzpn2z5mBdddblOQhmcb9cIsbfcPKQ==}
+    dependencies:
+      '@mapbox/polyline': 0.2.0
     dev: false
 
   /lru-cache@10.2.0:
@@ -2352,6 +2381,10 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
     dev: true
+
+  /osrm-text-instructions@0.13.4:
+    resolution: {integrity: sha512-ge4ZTIetMQKAHKq2MwWf83ntzdJN20ndRKRaVNoZ3SkDkBNO99Qddz7r6+hrVx38I+ih6Rk5T1yslczAB6Q9Pg==}
+    dev: false
 
   /p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
@@ -2566,15 +2599,15 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0):
+  /react-leaflet@4.2.1(leaflet@1.8.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
     peerDependencies:
       leaflet: ^1.9.0
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0)
-      leaflet: 1.9.4
+      '@react-leaflet/core': 2.1.0(leaflet@1.8.0)(react-dom@18.2.0)(react@18.2.0)
+      leaflet: 1.8.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false

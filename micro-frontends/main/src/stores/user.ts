@@ -1,7 +1,6 @@
 import { User } from '@/models/user';
 import { notify } from '@stores/modal';
 import { AxiosError } from 'axios';
-import { useEffect } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ISignInData } from 'shared-common';
 import { create } from 'zustand';
@@ -14,6 +13,7 @@ interface IUserStore {
 	isAuthenticated: boolean;
 	loading: boolean;
 	signIn: (account: ISignInData, navigate: NavigateFunction) => void;
+	signUp: (account: ISignInData) => void;
 	update: (id: string, email: string) => void;
 }
 
@@ -26,6 +26,7 @@ const useStore = create<IUserStore>((set) => ({
 		set({ loading: true });
 
 		try {
+			console.log('{ email, password }', { email, password });
 			const data = await user.signIn(email, password);
 
 			localStorage.setItem('access_token', data.accessToken);
@@ -40,7 +41,7 @@ const useStore = create<IUserStore>((set) => ({
 
 			set({ id: data.id, email, isAuthenticated: true, loading: false });
 
-			navigate('user/products');
+			navigate('/user/products');
 		} catch (error: AxiosError | unknown) {
 			if (error instanceof AxiosError) {
 				set({ loading: false });
@@ -50,6 +51,21 @@ const useStore = create<IUserStore>((set) => ({
 				'Notice',
 				'Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.'
 			);
+		}
+	},
+	signUp: async ({ email, password }: ISignInData) => {
+		set({ loading: true });
+
+		try {
+			await user.signUp(email, password);
+		} catch (error: AxiosError | unknown) {
+			console.log('error', error);
+			notify(
+				'Notice',
+				'Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.'
+			);
+		} finally {
+			set({ loading: false });
 		}
 	},
 	update: (id: string, email: string) =>

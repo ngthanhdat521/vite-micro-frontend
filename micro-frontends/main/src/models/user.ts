@@ -8,7 +8,15 @@ export class User {
 	}
 
 	public async signIn(email: string, password: string) {
+		console.log('{ email, password }2', { email, password });
+
 		const response = await this.httpClient.post('sign-in', { email, password });
+
+        return response.data;
+	}
+
+	public async signUp(email: string, password: string) {
+		const response = await this.httpClient.post('sign-up', { email, password });
 
         return response.data;
 	}

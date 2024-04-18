@@ -4,16 +4,18 @@ import { SpinnerButton } from '@components/presentationals/buttons';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
-export const SignInPage: FC = () => {
-	const { handleSubmit, control } = useForm({
+export const SignUpPage: FC = () => {
+	const { handleSubmit, control, getValues } = useForm({
 		defaultValues: {
 			email: '',
-			password: ''
+			password: '',
+			confirmationPassword: ''
 		},
 		mode: 'onChange'
 	});
 
-	const { loading, signIn } = useUserStore();
+	const { loading, signUp } = useUserStore();
+	const { password } = getValues();
 
 	return (
 		<section className="w-full h-full flex justify-center items-center bg-gray-50 dark:bg-gray-900">
@@ -23,11 +25,11 @@ export const SignInPage: FC = () => {
 					<div className="w-full h-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 flex">
 						<div className="w-full p-8">
 							<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-8">
-								Sign in to your account
+								Sign up to your account
 							</h1>
 							<form
 								className="space-y-4 md:space-y-6"
-								onSubmit={handleSubmit(signIn)}
+								onSubmit={handleSubmit(signUp)}
 							>
 								<div>
 									<label
@@ -41,7 +43,10 @@ export const SignInPage: FC = () => {
 										name="email"
 										type="email"
 										rules={{
-											required: true,
+											required: {
+												value: true,
+												message: 'Required email.'
+											},
 											pattern: {
 												value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
 												message: 'Email is invalid.'
@@ -61,7 +66,10 @@ export const SignInPage: FC = () => {
 										name="password"
 										type="password"
 										rules={{
-											required: true,
+											required: {
+												value: true,
+												message: 'Required password.'
+											},
 											pattern: {
 												value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&*-._])[0-9a-zA-Z~!@#$%^&*-._]{10,}/,
 												message: 'Password is invalid.'
@@ -69,40 +77,36 @@ export const SignInPage: FC = () => {
 										}}
 									/>
 								</div>
-								<div className="flex items-center justify-between">
-									<div className="flex items-start">
-										<div className="flex items-center h-5">
-											<input
-												id="remember"
-												aria-describedby="remember"
-												type="checkbox"
-												className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-											/>
-										</div>
-										<div className="ml-3 text-sm">
-											<label
-												htmlFor="remember"
-												className="text-gray-500 dark:text-gray-300"
-											>
-												Remember me
-											</label>
-										</div>
-									</div>
-									<a
-										href="#"
-										className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+								<div>
+									<label
+										htmlFor="password"
+										className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 									>
-										Forgot password?
-									</a>
+										Confirmation Password
+									</label>
+									<TextBox
+										control={control}
+										name="confirmationPassword"
+										type="password"
+										rules={{
+											required: {
+												value: true,
+												message: 'Required confirmtion password.'
+											},
+											validate: (value) => {
+												return value === password || 'Passwords do not match';
+											}
+										}}
+									/>
 								</div>
-								<SpinnerButton loading={loading}>Sign In</SpinnerButton>
+								<SpinnerButton loading={loading}>Sign up</SpinnerButton>
 								<p className="text-sm font-light text-gray-500 dark:text-gray-400">
-									Don’t have an account yet?
+									Had an account ?
 									<a
-										href="/sign-up"
+										href="/sign-in"
 										className="ml-2 font-medium text-primary-600 hover:underline dark:text-primary-500"
 									>
-										Sign up
+										Sign in
 									</a>
 								</p>
 								<div className="relative flex justify-center">
