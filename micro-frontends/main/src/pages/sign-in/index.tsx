@@ -1,10 +1,10 @@
-import React from 'react';
-import { TextBox } from '@/components/containers/textboxes';
-import { Button } from '@/components/presentationals/buttons/button';
+import { useUserStore } from '@/stores';
+import { TextBox } from '@components/containers/textboxes';
+import { SpinnerButton } from '@components/presentationals/buttons';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { Test } from 'shared';
 
-export const SignInPage = () => {
+export const SignInPage: FC = () => {
 	const { handleSubmit, control } = useForm({
 		defaultValues: {
 			email: '',
@@ -13,9 +13,7 @@ export const SignInPage = () => {
 		mode: 'onChange'
 	});
 
-	const authenticate = (data: any) => {
-		console.log(data);
-	}
+	const { loading, signIn } = useUserStore();
 
 	return (
 		<section className="w-full h-full flex justify-center items-center bg-gray-50 dark:bg-gray-900">
@@ -27,7 +25,10 @@ export const SignInPage = () => {
 							<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-8">
 								Sign in to your account
 							</h1>
-							<form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(authenticate)}>
+							<form
+								className="space-y-4 md:space-y-6"
+								onSubmit={handleSubmit(signIn)}
+							>
 								<div>
 									<label
 										htmlFor="email"
@@ -94,7 +95,7 @@ export const SignInPage = () => {
 										Forgot password?
 									</a>
 								</div>
-								<Button>Sign In</Button>
+								<SpinnerButton loading={loading}>Sign In</SpinnerButton>
 								<p className="text-sm font-light text-gray-500 dark:text-gray-400">
 									Don’t have an account yet?
 									<a
@@ -105,8 +106,8 @@ export const SignInPage = () => {
 									</a>
 								</p>
 								<div className="relative flex justify-center">
-									<div className="w-full h-[2px] absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 bg-gray-300 z-10" />
-									<div className="relative z-20 bg-white px-5">
+									<div className="w-full h-[2px] absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 bg-gray-300 z-1" />
+									<div className="relative z-1 bg-white px-5">
 										Or continue with
 									</div>
 								</div>

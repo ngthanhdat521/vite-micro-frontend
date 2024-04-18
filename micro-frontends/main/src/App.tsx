@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
 import MasterPage from 'layouts/shared/master-page';
+import React, { FC, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useSession } from './hooks/useSession';
 
-function App() {
+export const App: FC = () => {
 	const { pathname } = useLocation();
 	const [open, setOpen] = useState(false);
 
 	const handleOpenDropdown = () => setOpen(!open);
+
+	useSession();
 
 	return (
 		<MasterPage
@@ -18,5 +21,3 @@ function App() {
 		</MasterPage>
 	);
 }
-
-export default App;

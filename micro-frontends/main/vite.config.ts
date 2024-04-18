@@ -37,6 +37,10 @@ export default defineConfig({
 				find: '@services',
 				replacement: resolve(__dirname, './src/services/')
 			},
+			{
+				find: '@stores',
+				replacement: resolve(__dirname, './src/stores/')
+			},
 		]
 	},
 	build: {

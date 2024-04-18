@@ -25,6 +25,9 @@
 			"@routers": ["./src/routers/index.tsx"],
 			"@components/*": ["./src/components/*"],
 			"@services/*": ["./src/services/*"],
+			"@services": ["./src/services/index.ts"],
+			"@stores": ["./src/stores/index.ts"],
+			"@stores/*": ["./src/stores/*"],
 		}
 	},
 	"include": ["src", "vite.config.ts"],
