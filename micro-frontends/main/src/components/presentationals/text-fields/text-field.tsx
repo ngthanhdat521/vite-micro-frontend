@@ -1,10 +1,16 @@
-import React, { ChangeEventHandler } from 'react';
+import { ChangeEventHandler } from 'react';
 import { ControllerRenderProps, FieldPath, FieldValues } from 'react-hook-form';
+
+type IControllerProps<
+	TFieldValues extends FieldValues = FieldValues,
+	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> &
+	ControllerRenderProps<TFieldValues, TName>;
 
 interface IProps<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> extends ControllerRenderProps<TFieldValues, TName> {
+> extends IControllerProps<TFieldValues, TName> {
 	id?: string;
 	type: string;
 	placeholder?: string;

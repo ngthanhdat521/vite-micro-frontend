@@ -26,7 +26,6 @@ const useStore = create<IUserStore>((set) => ({
 		set({ loading: true });
 
 		try {
-			console.log('{ email, password }', { email, password });
 			const data = await user.signIn(email, password);
 
 			localStorage.setItem('access_token', data.accessToken);
@@ -59,7 +58,6 @@ const useStore = create<IUserStore>((set) => ({
 		try {
 			await user.signUp(email, password);
 		} catch (error: AxiosError | unknown) {
-			console.log('error', error);
 			notify(
 				'Notice',
 				'Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.'

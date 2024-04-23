@@ -1,4 +1,5 @@
 import { App } from '@/App';
+import { UserManagementPage } from '@/pages/admin/user-management';
 import { Tracking } from '@/pages/tracking';
 import { ModalProviders } from '@components/containers/providers';
 import { NotFoundPage } from '@pages/404';
@@ -19,6 +20,10 @@ export const AppRouters = () => {
 					<Route path="product/:id" element={<ProductDetailPage />} />
 					<Route path="my-cart" element={<MyCartPage />} />
 					<Route path="tracking" element={<Tracking />} />
+				</Route>
+				<Route path="admin" element={<App />}>
+					<Route path="" element={<Navigate to="user-management" />} />
+					<Route path="user-management" element={<UserManagementPage />} />
 				</Route>
 				<Route path="" element={<Navigate to="sign-in" />} />
 				<Route path="sign-in" element={<SignInPage />} />

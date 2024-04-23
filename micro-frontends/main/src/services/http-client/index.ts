@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'http://localhost:5000/v1'
+	baseURL: 'https://5281-14-191-112-126.ngrok-free.app/v1'
 });
 
 instance.defaults.headers['Authorization'] = localStorage.getItem('access_token');
@@ -30,8 +30,6 @@ export class HttpClient {
 	}
 
 	post<TBody>(url: string, body: TBody) {
-		console.log('{ email, password }3', body);
-
 		return instance.post(`${this.path}/${url}`, body);
 	}
 }

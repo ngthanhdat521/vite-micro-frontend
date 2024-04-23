@@ -8,8 +8,6 @@ export class User {
 	}
 
 	public async signIn(email: string, password: string) {
-		console.log('{ email, password }2', { email, password });
-
 		const response = await this.httpClient.post('sign-in', { email, password });
 
         return response.data;

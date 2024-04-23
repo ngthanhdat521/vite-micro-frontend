@@ -1,15 +1,8 @@
-import React from 'react';
-
 export const MyCartPage = () => {
 	return (
-		<div
-			className="w-full h-full mt-20"
-			aria-labelledby="slide-over-title"
-			role="dialog"
-			aria-modal="true"
-		>
-			<div className="grid grid-cols-12 gap-x-32 bg-white">
-				<div className="col-span-8">
+		<div className="w-full h-full mt-20" aria-labelledby="slide-over-title">
+			<div className="grid grid-cols-12 gap-x-32 sm:gap-x-0 sm:gap-y-10 bg-white">
+				<div className="2xl:col-span-8 xl:col-span-8 lg:col-span-8 md:col-span-8 sm:col-span-12">
 					<div className="flex items-start justify-between">
 						<h2 className="text-lg font-medium text-gray-900" id="slide-over-title">
 							Shopping cart
@@ -85,27 +78,27 @@ export const MyCartPage = () => {
 						</div>
 					</div>
 				</div>
-				<div className="col-span-4 flex justify-end bg-gray-100 rounded-md p-7">
+				<div className="2xl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-4 sm:col-span-12 flex justify-end bg-gray-100 rounded-md p-7">
 					<div className="w-full">
 						<p className="text-xl mb-5 font-medium">Order Summary</p>
 						<div className="divide-y divide-gray-200">
 							<div className="flex justify-between pb-4">
 								<p className="text-sm font-normal text-gray-500">Subtotal</p>
-								<p className="text-sm font-normal font-medium">$151.00</p>
+								<p className="text-sm font-medium">$151.00</p>
 							</div>
 							<div className="flex justify-between py-3">
 								<p className="text-sm font-normal text-gray-500">
 									Shipping estimate
 								</p>
-								<p className="text-sm font-normal font-medium">$87.00</p>
+								<p className="text-sm font-medium">$87.00</p>
 							</div>
 							<div className="flex justify-between py-3">
 								<p className="text-sm font-normal text-gray-500">Tax estimate</p>
 								<p className="text-sm font-normalfont-medium">$21.00</p>
 							</div>
 							<div className="flex justify-between py-3">
-								<p className="text-base font-normal font-medium">Order total</p>
-								<p className="text-base font-normal font-medium">$262.00</p>
+								<p className="text-base font-normal">Order total</p>
+								<p className="text-base font-medium">$262.00</p>
 							</div>
 						</div>
 						<p className="mt-0.5 text-sm text-gray-500">

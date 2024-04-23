@@ -25,5 +25,6 @@ export default {
 			base: ['"Inter var", sans-serif', ...fontFamily.sans]
 		}
 	},
-	plugins: []
+	plugins: [],
+	darkMode: 'selector',
 };
